@@ -1,0 +1,100 @@
+<HTML>
+<HEAD>
+	<TITLE>British Clock</TITLE>
+	<STYLE type='text/css'>
+
+		body {
+		    background-color: #C1D8C3;
+		}
+		
+		#clocknumbers {
+	        position: fixed;
+	        color: #FFF5E4;
+	        font-size: 180px;
+	        font-family: SF Pro;
+	        top: 180px;
+	        letter-spacing: -4px;
+	        line-height: 180px;
+	        filter: drop-shadow(3px 3px 5px rgba(0, 0, 0, 0.2));
+	        font-weight: 460;
+	        text-align: center;
+	        left: 525px;
+
+	    }
+
+	    #clocknumbers span {
+	        position: relative;
+	        top: -16px;
+	    }
+
+	    * {
+	        user-select: none;
+	    }
+
+	    #text {
+	    	position: fixed;
+	    	color: #857d7c;
+	    	font-family: SF Pro;
+	    	font-size: 25px;
+	    	top: 537px;
+	    	left: 782px;
+	    }
+
+	    #brit {
+	    	position: fixed;
+	    	color: #FFF5E4;
+	    	font-family: SF Pro;
+	    	height: 30px;
+	    	top: 562px;
+	    	left: 744px;
+	    }
+
+	    #bgelement{
+			position: fixed;
+			left: -1px;
+		}
+
+		#bgwaves{
+			position: fixed;
+			left: -1px;
+			top: -1px;
+			z-index: -2;
+			opacity: 0.9;
+		}
+
+	</STYLE>
+</HEAD>
+
+
+<BODY>
+
+	
+	<p id='clocknumbers'></p>
+	<p id='text'>UTC Time (British)</p>
+	<img src="Clock/Clock/Flag.png" id='Brit'></img>
+
+	<IMG src="Clock/Clock/Deco.png" id='bgelement'></IMG>
+	<IMG src="Clock/Clock/Wave.png" id='bgwaves'></IMG>
+
+	<script>
+
+		function updateClock() {
+	      const now = new Date();
+	      let hours = now.getUTCHours();
+          let minutes = now.getUTCMinutes();
+          let seconds = now.getUTCSeconds();
+
+	      hours = hours < 10 ? '0' + hours : hours;
+	      minutes = minutes < 10 ? '0' + minutes : minutes;
+	      seconds = seconds < 10 ? '0' + seconds : seconds;
+
+	      document.getElementById('clocknumbers').innerHTML = `${hours}<span>:</span>${minutes}<span>:</span>${seconds}`;
+	  }
+
+	  setInterval(updateClock, 1000);
+	  updateClock();
+
+	</script>
+
+</BODY>
+</HTML>
